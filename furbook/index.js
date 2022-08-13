@@ -5,8 +5,10 @@
 import * as React from 'react';
 import {AppRegistry} from 'react-native';
 import App from './App';
-import { Provider as PaperProvider } from 'react-native-paper';
 import {name as appName} from './app.json';
+
+// Allows handling of react-native-paper components for all components
+import { Provider as PaperProvider } from 'react-native-paper';
 
 export default function Main() {
     return (
