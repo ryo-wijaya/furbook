@@ -3,7 +3,7 @@ import { StyleSheet, Text, useColorScheme, View, ImageBackground } from 'react-n
 import { Avatar, Card, Title, Paragraph, Button } from 'react-native-paper';
 // import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../RootStackParamList';
+import { RootStackParamList } from '../../navigation/RootStackParamList';
 
 // Background image
 const image = require('../../assets/welcome.png');
