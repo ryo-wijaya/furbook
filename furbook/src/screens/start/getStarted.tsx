@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '70%',
-    backgroundColor: '#EDA125',
+    backgroundColor: '#ae928e',
   },
   buttonText: {
     fontWeight: 'bold',
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '180%',
+    marginTop: '160%',
   },
 });
 
