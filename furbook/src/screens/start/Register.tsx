@@ -1,5 +1,5 @@
 import React, {memo, useState} from 'react';
-import {TouchableOpacity, StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 import {
   Button,
   TextInput,
@@ -7,7 +7,6 @@ import {
 } from 'react-native-paper';
 
 //Register validators
-import ErrorMessage from '../../components/ErrorMessage';
 import { passwordValidator } from '../../utils/registerValidator';
 import { emailValidator } from '../../utils/registerValidator';
 import { passwordMatchValidator } from '../../utils/registerValidator';
@@ -59,7 +58,9 @@ const Register = () => {
           selectionColor="brown"
           activeOutlineColor="brown"
         />
-        <ErrorMessage visible={!!name.error} text={name.error}/>
+        <HelperText type="error" visible={!!name.error}>
+          {name.error}
+        </HelperText>
 
 
         <TextInput
@@ -71,7 +72,9 @@ const Register = () => {
           selectionColor="brown"
           activeOutlineColor="brown"
         />
-        <ErrorMessage visible={!!email.error} text={email.error}/>
+        <HelperText type="error" visible={!!email.error}>
+          {email.error}
+        </HelperText>
 
         <TextInput
           style={styles.textInput}
@@ -84,7 +87,9 @@ const Register = () => {
           secureTextEntry={passwordVisible}
           right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
         />
-        <ErrorMessage visible={!!password.error} text={password.error}/>
+        <HelperText type="error" visible={!!password.error}>
+          {password.error}
+        </HelperText>
 
         <TextInput
           style={styles.textInput}
@@ -97,7 +102,9 @@ const Register = () => {
           secureTextEntry={confirmPasswordVisible}
           right={<TextInput.Icon name={confirmPasswordVisible ? "eye" : "eye-off"} onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)} />}
         />
-        <ErrorMessage visible={!!confirmPassword.error} text={confirmPassword.error}/>
+        <HelperText type="error" visible={!!confirmPassword.error}>
+          {confirmPassword.error}
+        </HelperText>
 
         <Button mode="contained" style={styles.button} onPress={handleRegister}>
           Register

@@ -1,36 +1,19 @@
-import React from 'react';
-import { HelperText } from 'react-native-paper';
+// import React from 'react';
+// import {HelperText} from 'react-native-paper';
 
-type PaperProps = React.ComponentProps<typeof HelperText>;
+// type PaperProps = React.ComponentProps<typeof HelperText>;
 
-interface CustomProps {
-  visible: boolean,
-  text: string,
-  style?: PaperProps
-}
+// interface CustomProps extends PaperProps {
+//   visible: boolean;
+//   text: string;
+// }
 
-const ErrorMessage = ({visible, text, style}: CustomProps) => {
+// const ErrorMessage = ({visible, text, style}: CustomProps) => {
+//   return (
+//     <HelperText type="error" visible={visible} style={style}>
+//       {text}
+//     </HelperText>
+//   );
+// };
 
-  if (style == undefined) {
-    return (
-      <HelperText 
-        type="error" 
-        visible={visible}
-        >
-        {text}
-      </HelperText>
-    );
-  } else {
-    return (
-      <HelperText 
-        type="error" 
-        visible={visible}
-        style={style}
-        >
-        {text}
-      </HelperText>
-    );
-  }
-}
-
-export default ErrorMessage;
+// export default ErrorMessage;

@@ -10,7 +10,6 @@ import { RootStackParamList } from '../../navigation/RootStackParamList';
 
 import { emailValidator } from '../../utils/loginValidator';
 import { passwordValidator } from '../../utils/loginValidator';
-import ErrorMessage from '../../components/ErrorMessage';
 
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
@@ -59,7 +58,9 @@ const Login = ({ route, navigation }: navigationProps) => {
           selectionColor="brown"
           activeOutlineColor="brown"
         />
-        <ErrorMessage visible={!!email.error} text={email.error}/>
+        <HelperText type="error" visible={!!email.error}>
+          {email.error}
+        </HelperText>
 
         <TextInput
           style={styles.textInput}
@@ -72,7 +73,9 @@ const Login = ({ route, navigation }: navigationProps) => {
           secureTextEntry={passwordVisible}
           right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
         />
-        <ErrorMessage visible={!!password.error} text={password.error}/>
+        <HelperText type="error" visible={!!password.error}>
+          {password.error}
+        </HelperText>
 
         <View style={styles.forgotPassword}>
           <TouchableOpacity>
