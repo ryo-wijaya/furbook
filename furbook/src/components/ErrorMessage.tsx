@@ -11,10 +11,7 @@ interface CustomProps {
 
 const ErrorMessage = ({visible, text, style}: CustomProps) => {
 
-  console.log("style", style)
-
   if (style == undefined) {
-    console.log("control flow 1")
     return (
       <HelperText 
         type="error" 
@@ -24,7 +21,6 @@ const ErrorMessage = ({visible, text, style}: CustomProps) => {
       </HelperText>
     );
   } else {
-    console.log("control flow 2")
     return (
       <HelperText 
         type="error" 

@@ -10,22 +10,30 @@ import {
 import ErrorMessage from '../../components/ErrorMessage';
 import { passwordValidator } from '../../utils/registerValidator';
 import { emailValidator } from '../../utils/registerValidator';
+import { passwordMatchValidator } from '../../utils/registerValidator';
+import { nameValidator } from '../../utils/registerValidator';
 
 const Register = () => {
+  const [name, setName] = useState({value: '', error: ''});
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
-  const [passwordVisible, setPasswordVisible] = useState(true)
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(true)
+  const [confirmPassword, setConfirmPassword] = useState({value: '', error: ''});
+  const [passwordVisible, setPasswordVisible] = useState(true);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(true);
 
   const handleRegister = () => {
+    var nameError = nameValidator(name.value);
     var emailError = emailValidator(email.value);
     var passwordError = passwordValidator(password.value);
+    var confirmPasswordError = passwordMatchValidator(password.value, confirmPassword.value)
 
     // If error string is not empty, it evaluates to true
-    if (emailError || passwordError) {
+    if (nameError || emailError || passwordError || confirmPasswordError) {
       // Reset states
+      setName({...name, error: nameError})
       setEmail({...email, error: emailError});
-      setPassword({...password, error: passwordError})
+      setPassword({value: '', error: passwordError})
+      setConfirmPassword({value: '', error: confirmPasswordError})
       return;
     }
   };
@@ -41,6 +49,18 @@ const Register = () => {
 
       <View style={styles.registerContainer}>
         <Text style={styles.header}>Register</Text>
+
+        <TextInput
+          style={styles.textInput}
+          mode="outlined"
+          label="Name"
+          value={name.value}
+          onChangeText={text => setName({value: text, error: ''})}
+          selectionColor="brown"
+          activeOutlineColor="brown"
+        />
+        <ErrorMessage visible={!!name.error} text={name.error}/>
+
 
         <TextInput
           style={styles.textInput}
@@ -70,14 +90,14 @@ const Register = () => {
           style={styles.textInput}
           mode="outlined"
           label="Confirm Password"
-          value={password.value}
-          onChangeText={text => setPassword({value: text, error: ''})}
+          value={confirmPassword.value}
+          onChangeText={text => setConfirmPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
           secureTextEntry={confirmPasswordVisible}
           right={<TextInput.Icon name={confirmPasswordVisible ? "eye" : "eye-off"} onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)} />}
         />
-        <ErrorMessage visible={!!password.error} text={password.error}/>
+        <ErrorMessage visible={!!confirmPassword.error} text={confirmPassword.error}/>
 
         <Button mode="contained" style={styles.button} onPress={handleRegister}>
           Register
@@ -100,7 +120,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   registerContainer: {
-    marginTop: '30%',
+    marginTop: '10%',
     margin: '5%',
   },
   header: {
