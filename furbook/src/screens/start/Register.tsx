@@ -12,8 +12,8 @@ import {passwordMatchValidator} from '../../utils/registerValidator';
 import {nameValidator} from '../../utils/registerValidator';
 
 //Firebase authentication
-import auth from '@react-native-firebase/auth';
-import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
+// import auth from '@react-native-firebase/auth';
+// import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
 
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -47,17 +47,17 @@ const Register = ({route, navigation}: navigationProps) => {
       return;
     }
 
-    auth()
-      .createUserWithEmailAndPassword(email.value, password.value)
-      .then(() => {
-        console.log('User Registered');
-      })
-      .then(() => {
-        navigation.navigate('Home' as never, {} as never);
-      })
-      .catch((error) => {
-        console.log("ERROR", error)
-      });
+    // auth()
+    //   .createUserWithEmailAndPassword(email.value, password.value)
+    //   .then(() => {
+    //     console.log('User Registered');
+    //   })
+    //   .then(() => {
+    //     navigation.navigate('Home' as never, {} as never);
+    //   })
+    //   .catch((error) => {
+    //     console.log("ERROR", error)
+    //   });
   };
 
   return (

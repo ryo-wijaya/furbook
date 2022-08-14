@@ -5,7 +5,7 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Routes from './src/navigation/routes';
 
 // Firebase authentication
-import auth from '@react-native-firebase/auth';
+// import auth from '@react-native-firebase/auth';
 
 
 const MyTheme = {
@@ -19,17 +19,17 @@ const MyTheme = {
 
 const App = () => {
 
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
 
-  auth().onAuthStateChanged((user) => {
-    if (user) {
-      setAuthenticated(true);
-    } else {
-      setAuthenticated(false);
-    }
-  });
+  // auth().onAuthStateChanged((user) => {
+  //   if (user) {
+  //     setAuthenticated(true);
+  //   } else {
+  //     setAuthenticated(false);
+  //   }
+  // });
 
-  console.log("Is the user authenticated?", authenticated)
+  // console.log("Is the user authenticated?", authenticated)
 
   return (
     <NavigationContainer theme={MyTheme}>
