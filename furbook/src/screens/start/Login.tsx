@@ -6,7 +6,7 @@ import {
   HelperText,
 } from 'react-native-paper';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigation/RootStackParamList';
+import { RootStackParamList } from '../../navigation/rootStackParameterList';
 
 import { emailValidator } from '../../utils/loginValidator';
 import { passwordValidator } from '../../utils/loginValidator';
@@ -30,6 +30,7 @@ const Login = ({ route, navigation }: navigationProps) => {
     }
 
     // Do login, then navigate
+    navigation.navigate('Home' as never, {} as never)
   };
 
   const handleRegister = () => {

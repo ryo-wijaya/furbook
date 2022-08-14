@@ -6,13 +6,19 @@ import {
   HelperText,
 } from 'react-native-paper';
 
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/RootStackParamList';
+
 //Register validators
 import { passwordValidator } from '../../utils/registerValidator';
 import { emailValidator } from '../../utils/registerValidator';
 import { passwordMatchValidator } from '../../utils/registerValidator';
 import { nameValidator } from '../../utils/registerValidator';
 
-const Register = () => {
+type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+const Register = ({ route, navigation }: navigationProps) => {
+  
   const [name, setName] = useState({value: '', error: ''});
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
