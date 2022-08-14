@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206374672184",
+    "project_id": "furbook-1412",
+    "storage_bucket": "furbook-1412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206374672184:android:e4af75ce48bea396e9d3cd",
+        "android_client_info": {
+          "package_name": "com.furbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206374672184-sbtq9u7ij9bh88mo56ovqpugus4tji9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8grvLY0unxIMpcWiYRD4P0oieVxoqnog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206374672184-sbtq9u7ij9bh88mo56ovqpugus4tji9d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

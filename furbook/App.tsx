@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Routes from './src/navigation/routes';
 
+// Firebase authentication
+import auth from '@react-native-firebase/auth';
+
+
 const MyTheme = {
   ...DefaultTheme,
   colors: {
@@ -14,6 +18,18 @@ const MyTheme = {
 };
 
 const App = () => {
+
+  const [authenticated, setAuthenticated] = useState(false);
+
+  auth().onAuthStateChanged((user) => {
+    if (user) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  });
+
+  console.log("Is the user authenticated?", authenticated)
 
   return (
     <NavigationContainer theme={MyTheme}>

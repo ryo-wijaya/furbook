@@ -8,7 +8,7 @@ import {
   } from 'react-native-paper';
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from "../navigation/RootStackParamList";
+import { RootStackParamList } from "../navigation/rootStackParameterList";
 
 // type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
