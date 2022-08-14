@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, useColorScheme, View, ImageBackground } from 'react-native';
 import { Avatar, Card, Title, Paragraph, Button } from 'react-native-paper';
-// import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/RootStackParamList';
 
@@ -24,10 +23,7 @@ const GetStarted = ({ route, navigation }: navigationProps) => {
             mode="contained" 
             style={styles.button}
             labelStyle={styles.buttonText}
-            onPress={() => {
-              console.log("button pressed");
-              buttonHandler()
-            }}
+            onPress={buttonHandler}
           >
             GET STARTED
           </Button>

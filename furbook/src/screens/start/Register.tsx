@@ -5,38 +5,30 @@ import {
   TextInput,
   HelperText,
 } from 'react-native-paper';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigation/RootStackParamList';
 
-import { emailValidator } from '../../utils/loginValidator';
-import { passwordValidator } from '../../utils/loginValidator';
+//Register validators
 import ErrorMessage from '../../components/ErrorMessage';
+import { passwordValidator } from '../../utils/registerValidator';
+import { emailValidator } from '../../utils/registerValidator';
 
-type navigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
-
-const Login = ({ route, navigation }: navigationProps) => {
+const Register = () => {
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
   const [passwordVisible, setPasswordVisible] = useState(true)
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(true)
 
-  const handleLogin = () => {
+  const handleRegister = () => {
     var emailError = emailValidator(email.value);
     var passwordError = passwordValidator(password.value);
 
     // If error string is not empty, it evaluates to true
     if (emailError || passwordError) {
+      // Reset states
       setEmail({...email, error: emailError});
       setPassword({...password, error: passwordError})
       return;
     }
-
-    // Do login, then navigate
   };
-
-  const handleRegister = () => {
-    console.log("pressed")
-    navigation.navigate("Register" as never, {} as never)
-  }
 
   return (
     <View>
@@ -47,8 +39,8 @@ const Login = ({ route, navigation }: navigationProps) => {
         />
       </View>
 
-      <View style={styles.loginContainer}>
-        <Text style={styles.header}>Login</Text>
+      <View style={styles.registerContainer}>
+        <Text style={styles.header}>Register</Text>
 
         <TextInput
           style={styles.textInput}
@@ -74,22 +66,22 @@ const Login = ({ route, navigation }: navigationProps) => {
         />
         <ErrorMessage visible={!!password.error} text={password.error}/>
 
-        <View style={styles.forgotPassword}>
-          <TouchableOpacity>
-            <Text>Forgot your password?</Text>
-          </TouchableOpacity>
-        </View>
+        <TextInput
+          style={styles.textInput}
+          mode="outlined"
+          label="Confirm Password"
+          value={password.value}
+          onChangeText={text => setPassword({value: text, error: ''})}
+          selectionColor="brown"
+          activeOutlineColor="brown"
+          secureTextEntry={confirmPasswordVisible}
+          right={<TextInput.Icon name={confirmPasswordVisible ? "eye" : "eye-off"} onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)} />}
+        />
+        <ErrorMessage visible={!!password.error} text={password.error}/>
 
-        <Button mode="contained" style={styles.button} onPress={handleLogin}>
-          Login
+        <Button mode="contained" style={styles.button} onPress={handleRegister}>
+          Register
         </Button>
-
-        <View style={styles.signUp}>
-          <Text>Don't have an account? </Text>
-          <TouchableOpacity>
-            <Text style={styles.registerText} onPress={handleRegister}>Register now</Text>
-          </TouchableOpacity>
-        </View>
 
       </View>
     </View>
@@ -107,7 +99,7 @@ const styles = StyleSheet.create({
     width: 200,
     resizeMode: 'contain',
   },
-  loginContainer: {
+  registerContainer: {
     marginTop: '30%',
     margin: '5%',
   },
@@ -120,19 +112,6 @@ const styles = StyleSheet.create({
     marginLeft: '1%',
     borderColor: '#ae928e',
   },
-  errorText: {
-    height: "80%",
-  },
-  forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
-    marginTop: "1%",
-    paddingRight: "1%"
-  },
-  signUp: {
-    flexDirection: 'row',
-    margin: "1%",
-  },
   button: {
     backgroundColor: '#ae928e',
     margin: "1%",
@@ -142,4 +121,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default memo(Login);
+export default memo(Register);
