@@ -4,4 +4,5 @@ export type RootStackParamList = {
     Register: undefined,
     Home: undefined,
     Notes: undefined,
+    DrawerNavigator: undefined,
 };

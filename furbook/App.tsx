@@ -1,4 +1,6 @@
+import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
+
 
 // Wraps app in a navigation container to allow for navigation
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';

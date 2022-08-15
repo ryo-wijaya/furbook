@@ -12,16 +12,21 @@ import { RootStackParamList } from "../navigation/rootStackParameterList";
 
 import auth from '@react-native-firebase/auth';
 
-// type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type navigationProps = NativeStackScreenProps<RootStackParamList, 'DrawerNavigator'>;
 
-const Home = () => {
+const Home = ({ route, navigation }: navigationProps) => {
 
     console.log("User:", auth().currentUser)
 
     const logOut = () => {
         auth().signOut().then(() => {
             console.log("Logged Out")
+            navigation.navigate("Login" as never, {} as never)
         })
+    }
+
+    const navigateToDrawer = () => {
+        navigation.navigate("DrawerNavigator" as never, {} as never)
     }
 
     return (
@@ -29,6 +34,7 @@ const Home = () => {
             <Text>This is the home screen</Text>
             <PaperText>This is a paper text</PaperText>
             <Button onPress={logOut}>Sign out</Button>
+            <Button onPress={navigateToDrawer}>Toggle</Button>
         </>
     );
 }

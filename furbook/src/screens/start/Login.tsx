@@ -11,6 +11,10 @@ import { RootStackParamList } from '../../navigation/rootStackParameterList';
 import { emailValidator } from '../../utils/loginValidator';
 import { passwordValidator } from '../../utils/loginValidator';
 
+//Firebase authentication
+import auth, { firebase } from '@react-native-firebase/auth';
+
+
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
 const Login = ({ route, navigation }: navigationProps) => {
@@ -29,8 +33,24 @@ const Login = ({ route, navigation }: navigationProps) => {
       return;
     }
 
-    // Do login, then navigate
-    navigation.navigate('Home' as never, {} as never)
+    auth()
+      .signInWithEmailAndPassword(email.value, password.value)
+      .then((res) => {
+        console.log('User Logged in successfully!')
+        setEmail({value: '', error: ''})
+        setPassword({value: '', error: ''})
+        navigation.navigate('Home' as never, {} as never)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log("Register Error Code:", errorCode)
+        console.log("Register Error Message:", error.message)
+
+        // Bring in other error codes in the future if necessary
+        if (errorCode === "auth/wrong-password" || errorCode === "auth/user-not-found") {
+          setPassword({...password, error: "Invalid email address or password"})
+        }
+      });
   };
 
   const handleRegister = () => {
