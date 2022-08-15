@@ -3,10 +3,16 @@ import React, { useState, useEffect } from 'react';
 // Wraps app in a navigation container to allow for navigation
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import Routes from './src/navigation/routes';
+import { RootStackParamList } from './src/navigation/rootStackParameterList';
 
 // Firebase authentication
-// import auth from '@react-native-firebase/auth';
+import { View, Text } from 'react-native';
+import auth from '@react-native-firebase/auth';
 
+// Firebase initialization
+import { firebaseApp } from './src/config/firebaseConfig';
+
+import GetStarted from './src/screens/start/GetStarted';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -19,21 +25,31 @@ const MyTheme = {
 
 const App = () => {
 
-  // const [authenticated, setAuthenticated] = useState(false);
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+  const [initialRouteName, setInitialRouteName] = useState("Home");
 
-  // auth().onAuthStateChanged((user) => {
-  //   if (user) {
-  //     setAuthenticated(true);
-  //   } else {
-  //     setAuthenticated(false);
-  //   }
-  // });
+  // Handle user state changes
+  function onAuthStateChanged(user: any) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
 
-  // console.log("Is the user authenticated?", authenticated)
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+
+  if (initializing) return null;
+
+  // if (!user) {
+  //   setInitialRouteName("GetStarted")
+  // }
 
   return (
     <NavigationContainer theme={MyTheme}>
-      <Routes />
+      <Routes authenticated={!!user}/>
     </NavigationContainer>
   );
 };

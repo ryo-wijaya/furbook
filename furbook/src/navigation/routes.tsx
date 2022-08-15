@@ -11,10 +11,15 @@ import Home from "../screens/Home";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const Routes = () => {
+interface AuthProps {
+  authenticated: boolean;
+}
+
+const Routes = (authenticated: AuthProps) => {
+
     return (
         <Stack.Navigator 
-        initialRouteName="GetStarted"
+        initialRouteName={authenticated.authenticated ? "Home" : "GetStarted"}
         screenOptions={{
           headerShown: false,
         }}
