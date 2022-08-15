@@ -6,13 +6,8 @@ import Routes from './src/navigation/routes';
 import { RootStackParamList } from './src/navigation/rootStackParameterList';
 
 // Firebase authentication
-import { View, Text } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-// Firebase initialization
-import { firebaseApp } from './src/config/firebaseConfig';
-
-import GetStarted from './src/screens/start/GetStarted';
 
 const MyTheme = {
   ...DefaultTheme,

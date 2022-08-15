@@ -8,6 +8,7 @@ import GetStarted from "../screens/start/GetStarted";
 import Login from "../screens/start/Login";
 import Register from "../screens/start/Register";
 import Home from "../screens/Home";
+import Notes from "../screens/notes/Notes";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -28,6 +29,7 @@ const Routes = (authenticated: AuthProps) => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Notes" component={Notes} />
       </Stack.Navigator>
     );
 }
