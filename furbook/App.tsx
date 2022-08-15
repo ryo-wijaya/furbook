@@ -43,10 +43,6 @@ const App = () => {
 
   if (initializing) return null;
 
-  // if (!user) {
-  //   setInitialRouteName("GetStarted")
-  // }
-
   return (
     <NavigationContainer theme={MyTheme}>
       <Routes authenticated={!!user}/>

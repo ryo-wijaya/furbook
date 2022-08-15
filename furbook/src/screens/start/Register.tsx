@@ -12,8 +12,10 @@ import {passwordMatchValidator} from '../../utils/registerValidator';
 import {nameValidator} from '../../utils/registerValidator';
 
 //Firebase authentication
-// import auth from '@react-native-firebase/auth';
-// import { isSearchBarAvailableForCurrentPlatform } from 'react-native-screens';
+import auth, { firebase } from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+
 
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -47,17 +49,29 @@ const Register = ({route, navigation}: navigationProps) => {
       return;
     }
 
-    // auth()
-    //   .createUserWithEmailAndPassword(email.value, password.value)
-    //   .then(() => {
-    //     console.log('User Registered');
-    //   })
-    //   .then(() => {
-    //     navigation.navigate('Home' as never, {} as never);
-    //   })
-    //   .catch((error) => {
-    //     console.log("ERROR", error)
-    //   });
+    auth()
+      .createUserWithEmailAndPassword(email.value, password.value)
+      .then((res) => {
+        var userData = {
+          displayName: name.value,
+          email: email.value,
+        }
+        firestore().collection("users").doc(res.user.uid).set(userData);
+      })
+      .then(() => {
+        console.log('User Registered');
+        navigation.navigate('Home' as never, {} as never);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log("Register Error Code:", errorCode)
+        console.log("Register Error Message:", error.message)
+
+        // Bring in other error codes in the future if necessary
+        if (errorCode === "auth/email-already-in-use") {
+          setEmail({...email, error: "Email already in use"})
+        }
+      });
   };
 
   return (
