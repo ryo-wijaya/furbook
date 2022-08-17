@@ -1,18 +1,20 @@
 import React, {memo, useState} from 'react';
 import {TouchableOpacity, StyleSheet, Text, View, Image, NativeEventEmitter} from 'react-native';
+import { Icon } from 'react-native-paper/lib/typescript/components/Avatar/Avatar';
 import {
-  Button,
+  Button, IconButton,
   TextInput,
   HelperText,
   Text as PaperText,
   Avatar, Card, Title, Paragraph
 } from 'react-native-paper';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation/rootStackParameterList';
+import AppBar from '../../components/AppBar';
 
-import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth'
+
 
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -36,36 +38,52 @@ const Pets = ({ route, navigation }: navigationProps) => {
           <Avatar.Image size={100} source={require('../../assets/dog.png')} />
           <View style={styles.petDetailsContainer}>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Name: </Text>
+              <Text style={styles.petDetailTextKey}>Name:  </Text>
               <Text style={styles.petDetailTextValue}>Eevee</Text>
             </View>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Gender: </Text>
+              <Text style={styles.petDetailTextKey}>Gender:  </Text>
               <Text style={styles.petDetailTextValue}>Female</Text>
             </View>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Breed: </Text>
+              <Text style={styles.petDetailTextKey}>Breed:  </Text>
               <Text style={styles.petDetailTextValue}>Cavapoo</Text>
             </View>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Age: </Text>
+              <Text style={styles.petDetailTextKey}>Age:  </Text>
               <Text style={styles.petDetailTextValue}>8 Months</Text>
             </View>
           </View>
         </Card.Content>
         <Card.Actions style={styles.buttonsContainer}>
-          <Button icon="camera">View Profile</Button>
-          <Button>Edit Profile</Button>
-          <Button>Delete Pet</Button>
-          {/* <Icon name="rocket" size={30} color="#900" /> */}
+          <IconButton 
+            icon="eye"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="square-edit-outline"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="delete"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
         </Card.Actions>
       </Card>
 
-      <Card style={styles.card}>
-        <Card.Content style={styles.plusSignContainer}>
-          <Text style={styles.plusSign}>+</Text>
-        </Card.Content>
-      </Card>
+        <Card style={styles.card}>
+        <TouchableOpacity onPress={() => console.log("hi")}>
+          <Card.Content style={styles.plusSignContainer}>
+            <Text style={styles.plusSign}>+</Text>
+          </Card.Content>
+          </TouchableOpacity>
+        </Card>
       <Button onPress={logOut}>Sign out</Button>
     </View>
   );
@@ -87,12 +105,12 @@ const styles = StyleSheet.create({
     elevation: 10,
     borderRadius: 50,
     // maxHeight: "22%",
-    // minHeight: "22%",
+    minHeight: "24%",
     // justifyContent: 'center',
     // alignItems: 'center',
   },
   cardContent: {
-    marginLeft: "10%",
+    marginLeft: "5%",
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -116,15 +134,16 @@ const styles = StyleSheet.create({
     fontFamily: "cursive"
   },
   plusSignContainer: {
-    justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: "5%"
   },
   plusSign: {
     fontSize: 100,
     color: "#6d453d"
   },
   buttonsContainer: {
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    color: "black"
   }
 });
 
