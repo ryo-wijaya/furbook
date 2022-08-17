@@ -17,18 +17,17 @@ import firestore from '@react-native-firebase/firestore';
 
 
 
-type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type navigationProps = NativeStackScreenProps<RootStackParamList, 'Pets'>;
 
 const Register = ({route, navigation}: navigationProps) => {
   const [name, setName] = useState({value: '', error: ''});
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
-  const [confirmPassword, setConfirmPassword] = useState({
-    value: '',
-    error: '',
-  });
+  const [confirmPassword, setConfirmPassword] = useState({value: '', error: ''});
   const [passwordVisible, setPasswordVisible] = useState(true);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(true);
+
+  console.log('Entering the Register Screen')
 
   const handleRegister = () => {
     var nameError = nameValidator(name.value);
@@ -94,6 +93,7 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setName({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          theme={{colors: {text: 'black'}}}
         />
         <HelperText type="error" visible={!!name.error}>
           {name.error}
@@ -107,6 +107,7 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setEmail({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          theme={{colors: {text: 'black'}}}
         />
         <HelperText type="error" visible={!!email.error}>
           {email.error}
@@ -120,6 +121,7 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          theme={{colors: {text: 'black'}}}
           secureTextEntry={passwordVisible}
           right={
             <TextInput.Icon
@@ -140,6 +142,7 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setConfirmPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          theme={{colors: {text: 'black'}}}
           secureTextEntry={confirmPasswordVisible}
           right={
             <TextInput.Icon
@@ -183,6 +186,7 @@ const styles = StyleSheet.create({
   textInput: {
     marginLeft: '1%',
     borderColor: '#ae928e',
+    backgroundColor: "#d3c4bf",
   },
   button: {
     backgroundColor: '#ae928e',

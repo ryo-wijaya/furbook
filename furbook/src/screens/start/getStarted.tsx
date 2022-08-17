@@ -11,6 +11,8 @@ type navigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 const GetStarted = ({ route, navigation }: navigationProps) => {
 
+  console.log('Entering the GetStarted Screen')
+
   const buttonHandler = () => {
     navigation.navigate("Login" as never, {} as never)
   }

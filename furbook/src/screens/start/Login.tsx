@@ -17,10 +17,13 @@ import auth, { firebase } from '@react-native-firebase/auth';
 
 type navigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
+
 const Login = ({ route, navigation }: navigationProps) => {
   const [email, setEmail] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
   const [passwordVisible, setPasswordVisible] = useState(true)
+
+  console.log('Entering the Login Screen')
 
   const handleLogin = () => {
     var emailError = emailValidator(email.value);
@@ -39,7 +42,7 @@ const Login = ({ route, navigation }: navigationProps) => {
         console.log('User Logged in successfully!')
         setEmail({value: '', error: ''})
         setPassword({value: '', error: ''})
-        navigation.navigate('Home' as never, {} as never)
+        navigation.navigate('Pets' as never, {} as never)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -54,7 +57,6 @@ const Login = ({ route, navigation }: navigationProps) => {
   };
 
   const handleRegister = () => {
-    console.log("pressed")
     navigation.navigate("Register" as never, {} as never)
   }
 
@@ -78,6 +80,7 @@ const Login = ({ route, navigation }: navigationProps) => {
           onChangeText={text => setEmail({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          theme={{colors: {text: 'black'}}}
         />
         <HelperText type="error" visible={!!email.error}>
           {email.error}
@@ -93,6 +96,7 @@ const Login = ({ route, navigation }: navigationProps) => {
           activeOutlineColor="brown"
           secureTextEntry={passwordVisible}
           right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
+          theme={{colors: {text: 'black'}}}
         />
         <HelperText type="error" visible={!!password.error}>
           {password.error}
@@ -143,6 +147,7 @@ const styles = StyleSheet.create({
   textInput: {
     marginLeft: '1%',
     borderColor: '#ae928e',
+    backgroundColor: "#d3c4bf",
   },
   errorText: {
     height: "80%",
@@ -159,7 +164,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#ae928e',
-    margin: "1%",
+    marginLeft: '1%',
   },
   registerText: {
     textDecorationLine: 'underline',

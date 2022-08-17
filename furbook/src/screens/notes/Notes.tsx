@@ -16,6 +16,8 @@ import auth from '@react-native-firebase/auth';
 
 const Notes = () => {
 
+    console.log("This is the notes screen")
+
     return (
         <>
             <Text>This is the notes screen</Text>
