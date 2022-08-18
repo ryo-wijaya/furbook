@@ -21,11 +21,19 @@ const Home = ({ route, navigation }: navigationProps) => {
   
   console.log('Entering the Home Screen')
 
+  const logOut = () => {
+    auth()
+      .signOut()
+      .then(() => {
+        console.log('User has logged out. Automatically switching navigation stacks.')
+      });
+  };
+
   return (
     <View>
       <Text>This is the home screen. Navigate to the Pets screen below.</Text>
       <Button onPress={() => navigation.navigate("Pets" as never, {} as never)}>Pets Screen</Button>
-
+      <Button onPress={logOut}>Sign out</Button>
     </View>
   );
 };

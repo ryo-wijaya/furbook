@@ -8,7 +8,7 @@ import { RootStackParamList } from "./rootStackParameterList";
 import GetStarted from "../screens/start/GetStarted";
 import Login from "../screens/start/Login";
 import Register from "../screens/start/Register";
-import Home from "../screens/home/home";
+import Home from "../screens/home/Home";
 import Pets from "../screens/home/Pets";
 import Notes from "../screens/notes/Notes";
 import AppBar from "../components/AppBar";
@@ -44,19 +44,24 @@ const Routes = (authenticated: AuthProps) => {
 
     return (
       <Stack.Navigator 
-        initialRouteName={authenticated.authenticated ? "Home" : "GetStarted"}
         screenOptions={{
           // headerShown: false,
           header: (props) => <AppBar {...props} />,
         }}
       > 
-        {/* <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
-        <Stack.Screen name="GetStarted" component={GetStarted} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Pets" component={Pets} />
-        <Stack.Screen name="Notes" component={Notes} />
+        {authenticated.authenticated ? (
+          <>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Pets" component={Pets} />
+            <Stack.Screen name="Notes" component={Notes} />
+          </>
+        ) : (
+          <>
+            <Stack.Screen name="GetStarted" component={GetStarted} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Register" component={Register} />
+          </>
+        )}
       </Stack.Navigator>
     );
 }

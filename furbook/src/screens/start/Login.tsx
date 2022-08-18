@@ -39,10 +39,9 @@ const Login = ({ route, navigation }: navigationProps) => {
     auth()
       .signInWithEmailAndPassword(email.value, password.value)
       .then((res) => {
-        console.log('User Logged in successfully!')
         setEmail({value: '', error: ''})
         setPassword({value: '', error: ''})
-        navigation.navigate('Pets' as never, {} as never)
+        console.log('User Logged in successfully! Automatically switching navigation stacks.')
       })
       .catch((error) => {
         const errorCode = error.code;

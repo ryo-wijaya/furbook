@@ -7,9 +7,12 @@ import {StyleSheet} from 'react-native';
 type navigationProps = NativeStackScreenProps<RootStackParamList>;
 
 const AppBar = ({navigation, back, route}: any) => {
-  console.log("back", back)
-  console.log("navigation", navigation)
-  console.log("route", route)
+
+  if (route.name === "GetStarted" ||
+      route.name === "Login" ||
+      route.name === "Register") {
+        return null;
+      }
 
   return (
     <Appbar.Header style={styles.appBar}>

@@ -1,5 +1,5 @@
 import React, {memo, useState} from 'react';
-import {TouchableOpacity, StyleSheet, Text, View, Image, NativeEventEmitter} from 'react-native';
+import {TouchableOpacity, StyleSheet, Text, View, ScrollView, Image, NativeEventEmitter} from 'react-native';
 import { Icon } from 'react-native-paper/lib/typescript/components/Avatar/Avatar';
 import {
   Button, IconButton,
@@ -22,16 +22,8 @@ const Pets = ({ route, navigation }: navigationProps) => {
   
   console.log('Entering the Pets Screen')
 
-  const logOut = () => {
-    auth()
-      .signOut()
-      .then(() => {
-        console.log('Logged Out');
-        navigation.navigate('Login' as never, {} as never);
-      });
-  };
-
   return (
+    <ScrollView>
     <View style={styles.cardContainer}>
       <Card style={styles.card}>
         <Card.Content style={styles.cardContent}>
@@ -78,14 +70,42 @@ const Pets = ({ route, navigation }: navigationProps) => {
       </Card>
 
         <Card style={styles.card}>
-        <TouchableOpacity onPress={() => console.log("hi")}>
-          <Card.Content style={styles.plusSignContainer}>
-            <Text style={styles.plusSign}>+</Text>
-          </Card.Content>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>+</Text>
+            </Card.Content>
           </TouchableOpacity>
         </Card>
-      <Button onPress={logOut}>Sign out</Button>
+        <Card style={styles.card}>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>+</Text>
+            </Card.Content>
+          </TouchableOpacity>
+        </Card>
+        <Card style={styles.card}>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>+</Text>
+            </Card.Content>
+          </TouchableOpacity>
+        </Card>
+        <Card style={styles.card}>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>+</Text>
+            </Card.Content>
+          </TouchableOpacity>
+        </Card>
+        <Card style={styles.card}>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>+</Text>
+            </Card.Content>
+          </TouchableOpacity>
+        </Card>
     </View>
+    </ScrollView>
   );
 };
 

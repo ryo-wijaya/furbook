@@ -24,7 +24,7 @@ const App = () => {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const [initialRouteName, setInitialRouteName] = useState("Home");
+  
 
   // Handle user state changes
   function onAuthStateChanged(user: any) {
