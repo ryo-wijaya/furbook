@@ -4,12 +4,10 @@ import React, { useState, useEffect } from 'react';
 
 // Wraps app in a navigation container to allow for navigation
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import Routes from './src/navigation/routes';
-import { RootStackParamList } from './src/navigation/rootStackParameterList';
+import StartRoutes from './src/navigation/StartRoutes';
 
 // Firebase authentication
 import auth from '@react-native-firebase/auth';
-
 
 const MyTheme = {
   ...DefaultTheme,
@@ -24,7 +22,7 @@ const App = () => {
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  
+
 
   // Handle user state changes
   function onAuthStateChanged(user: any) {
@@ -40,9 +38,11 @@ const App = () => {
 
   if (initializing) return null;
 
+
+
   return (
     <NavigationContainer theme={MyTheme}>
-      <Routes authenticated={!!user}/>
+      <StartRoutes authenticated={!!user}/>
     </NavigationContainer>
   );
 };

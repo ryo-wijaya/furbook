@@ -1,10 +1,10 @@
 import React, {memo, useState} from 'react';
 import {Appbar} from 'react-native-paper';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/rootStackParameterList';
+import {StartStackParamList} from '../navigation/ParameterList';
 import {StyleSheet} from 'react-native';
 
-type navigationProps = NativeStackScreenProps<RootStackParamList>;
+type navigationProps = NativeStackScreenProps<StartStackParamList>;
 
 const AppBar = ({navigation, back, route}: any) => {
 
@@ -34,6 +34,7 @@ const AppBar = ({navigation, back, route}: any) => {
 const styles = StyleSheet.create({
   appBar: {
     backgroundColor: '#6d453d',
+    height: 60,
   },
 });
 

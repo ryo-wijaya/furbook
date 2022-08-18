@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image, Alert} from 'react-native';
 import {Button, TextInput, HelperText} from 'react-native-paper';
 
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/rootStackParameterList';
+import {StartStackParamList} from '../../navigation/ParameterList';
 
 //Register validators
 import {passwordValidator} from '../../utils/registerValidator';
@@ -17,7 +17,7 @@ import firestore from '@react-native-firebase/firestore';
 
 
 
-type navigationProps = NativeStackScreenProps<RootStackParamList, 'Pets'>;
+type navigationProps = NativeStackScreenProps<StartStackParamList, 'Register'>;
 
 const Register = ({route, navigation}: navigationProps) => {
   const [name, setName] = useState({value: '', error: ''});

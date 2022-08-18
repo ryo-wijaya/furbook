@@ -6,7 +6,7 @@ import {
   HelperText,
 } from 'react-native-paper';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigation/rootStackParameterList';
+import { StartStackParamList } from '../../navigation/ParameterList';
 
 import { emailValidator } from '../../utils/loginValidator';
 import { passwordValidator } from '../../utils/loginValidator';
@@ -15,7 +15,7 @@ import { passwordValidator } from '../../utils/loginValidator';
 import auth, { firebase } from '@react-native-firebase/auth';
 
 
-type navigationProps = NativeStackScreenProps<RootStackParamList, 'Register'>;
+type navigationProps = NativeStackScreenProps<StartStackParamList, 'Login'>;
 
 
 const Login = ({ route, navigation }: navigationProps) => {

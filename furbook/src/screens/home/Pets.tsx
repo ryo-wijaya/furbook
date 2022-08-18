@@ -10,13 +10,13 @@ import {
 } from 'react-native-paper';
 
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/rootStackParameterList';
+import {StartStackParamList} from '../../navigation/ParameterList';
 import AppBar from '../../components/AppBar';
 
 import auth from '@react-native-firebase/auth'
 
 
-type navigationProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+type navigationProps = NativeStackScreenProps<StartStackParamList, 'Login'>;
 
 const Pets = ({ route, navigation }: navigationProps) => {
   

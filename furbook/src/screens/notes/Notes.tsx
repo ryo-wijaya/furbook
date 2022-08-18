@@ -8,11 +8,11 @@ import {
   } from 'react-native-paper';
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../navigation/rootStackParameterList';
+import { StartStackParamList } from '../../navigation/ParameterList';
 
 import auth from '@react-native-firebase/auth';
 
-// type navigationProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+// type navigationProps = NativeStackScreenProps<StartStackParamList, 'Home'>;
 
 const Notes = () => {
 

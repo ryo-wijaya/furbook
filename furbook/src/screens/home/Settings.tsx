@@ -17,28 +17,15 @@ import auth from '@react-native-firebase/auth'
 
 type navigationProps = NativeStackScreenProps<StartStackParamList, 'Login'>;
 
-const Home = ({ route, navigation }: navigationProps) => {
+const Settings = ({ route, navigation }: navigationProps) => {
   
-  console.log('Entering the Home Screen')
-
-  const logOut = () => {
-    auth()
-      .signOut()
-      .then(() => {
-        console.log('User has logged out. Automatically switching navigation stacks.')
-      });
-  };
+  console.log('Entering the Settings Screen')
 
   return (
     <View>
-      <Text>This is the home screen. Navigate to the Notes screen below.</Text>
-      <Button onPress={() => navigation.navigate("Notes" as never, {} as never)}>Notes Screen</Button>
-      <Button onPress={logOut}>Sign out</Button>
+      <Text>This is the Settings screen.</Text>
     </View>
   );
 };
 
-
-
-
-export default memo(Home);
+export default memo(Settings);
