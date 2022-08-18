@@ -21,7 +21,7 @@ const HomeRoutes = () => {
           // headerShown: false
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="HomePage" component={Home} />
         <Stack.Screen name="Notes" component={Notes}/>
       </Stack.Navigator>
     );

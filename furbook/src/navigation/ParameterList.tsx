@@ -5,12 +5,12 @@ export type StartStackParamList = {
 };
 
 export type BottomTabParamList = {
-    MainRoutes: undefined,
+    Home: undefined,
     Pets: undefined,
     Settings: undefined,
 };
 
 export type HomeStackParamList = {
-    Home: undefined,
+    HomePage: undefined,
     Notes: undefined,
 };

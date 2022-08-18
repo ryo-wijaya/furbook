@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     marginBottom: '1%',
     marginLeft: "4%",
     marginRight: "4%",
-    backgroundColor: '#e0cfc8',
+    backgroundColor: '#d3c4bf',
     borderColor:'#808080',
     elevation: 10,
     borderRadius: 50,

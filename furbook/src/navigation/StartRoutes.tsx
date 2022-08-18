@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Button } from "react-native-paper";
+import { Button, Avatar, ActivityIndicator } from "react-native-paper";
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -15,6 +15,7 @@ import MainRoutes from "./MainRoutes";
 import Pets from "../screens/main/Pets";
 import Settings from "../screens/main/Settings";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
 
 const Stack = createNativeStackNavigator<StartStackParamList>();
 const Tab = createBottomTabNavigator<BottomTabParamList>();
@@ -28,25 +29,41 @@ const StartRoutes = (authenticated: AuthProps) => {
     return (
       <>
         {authenticated.authenticated ? (
-          <Tab.Navigator screenOptions={{
+          <Tab.Navigator 
+            initialRouteName="Home" 
+            screenOptions={({ route }) => ({
             headerShown: false,
-            // headerStyle: {
-            //   backgroundColor: "#6d453d"
-            // },
-            // headerTitleStyle: {
-            //   fontWeight: 'bold',
-            //   color: '#fbf3f3'
-            // },
-            // headerLeft: ({ navigation }) => (<BackButton navigation={{  }}/>),
-          }}
+            tabBarInactiveBackgroundColor: "#ae928e",
+            tabBarActiveBackgroundColor: "#e0cfc8",
+            tabBarInactiveTintColor: "white",
+            tabBarActiveTintColor: "white",
+            tabBarLabelStyle: {marginBottom: 5},
+            tabBarIconStyle: {},
+            tabBarStyle: {height: 60},
+            tabBarAllowFontScaling: true,
+            tabBarIcon: ({ focused, color }) => {
+              var iconName: IconSource = "";
+              var size = 50;
+
+              if (route.name === 'Home') {
+                iconName = 'home'
+              } else if (route.name === 'Settings') {
+                iconName = 'dots-horizontal-circle-outline'
+              } else if (route.name === 'Pets') {
+                iconName = 'dog'
+              }
+              return (<Avatar.Icon icon={iconName} size={size} color="white" theme={{colors: {primary: 'brown'}}} style={{ backgroundColor: 'rgba(52, 52, 52, 0)'
+            }}></Avatar.Icon>)
+            },
+          })}
           >
-            <Tab.Screen name="MainRoutes" 
-              component={MainRoutes} 
-              options={({ route }) => ({
-                  headerTitle: getFocusedRouteNameFromRoute(route),
-                })}
-              />
             <Tab.Screen name="Pets" component={Pets} />
+            <Tab.Screen name="Home" 
+              component={MainRoutes} 
+              // options={({ route }) => ({
+              //     headerTitle: getFocusedRouteNameFromRoute(route),
+              //   })}
+              />
             <Tab.Screen name="Settings" component={Settings} />
           </Tab.Navigator>
         ) : (
