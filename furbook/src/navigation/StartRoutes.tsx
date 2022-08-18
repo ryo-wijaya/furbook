@@ -2,8 +2,7 @@ import React, { memo } from "react";
 import { Button, Avatar, ActivityIndicator } from "react-native-paper";
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { StartStackParamList } from "./ParameterList";
 import { BottomTabParamList } from "./ParameterList";
 
@@ -14,11 +13,12 @@ import Register from "../screens/start/Register";
 import MainRoutes from "./MainRoutes";
 import Pets from "../screens/main/Pets";
 import Settings from "../screens/main/Settings";
+
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
 
 const Stack = createNativeStackNavigator<StartStackParamList>();
-const Tab = createBottomTabNavigator<BottomTabParamList>();
+const Tab = createMaterialTopTabNavigator<BottomTabParamList>();
 
 interface AuthProps {
   authenticated: boolean;
@@ -30,21 +30,25 @@ const StartRoutes = (authenticated: AuthProps) => {
       <>
         {authenticated.authenticated ? (
           <Tab.Navigator 
-            initialRouteName="Home" 
+            initialRouteName="Home"
+            tabBarPosition="bottom"
+            backBehavior="history"
             screenOptions={({ route }) => ({
             headerShown: false,
             tabBarInactiveBackgroundColor: "#ae928e",
             tabBarActiveBackgroundColor: "#e0cfc8",
             tabBarInactiveTintColor: "white",
             tabBarActiveTintColor: "white",
-            tabBarLabelStyle: {marginBottom: 5},
-            tabBarIconStyle: {},
-            tabBarStyle: {height: 60},
+            tabBarContentContainerStyle: {},
+            tabBarLabelStyle: {},
+            tabBarIconStyle: {alignItems: "center", justifyContent: "center"},
+            tabBarIndicatorStyle: {backgroundColor: "#fbf3f3"},
+            tabBarStyle: {height: 65, backgroundColor: "#ae928e"},
             tabBarAllowFontScaling: true,
+            tabBarBadgeStyle: {color: "white", backgroundColor: "brown"},
             tabBarIcon: ({ focused, color }) => {
               var iconName: IconSource = "";
               var size = 50;
-
               if (route.name === 'Home') {
                 iconName = 'home'
               } else if (route.name === 'Settings') {
@@ -57,7 +61,7 @@ const StartRoutes = (authenticated: AuthProps) => {
             },
           })}
           >
-            <Tab.Screen name="Pets" component={Pets} />
+            <Tab.Screen name="Pets" component={Pets}/>
             <Tab.Screen name="Home" 
               component={MainRoutes} 
               // options={({ route }) => ({
