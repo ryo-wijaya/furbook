@@ -12,8 +12,8 @@ import GetStarted from "../screens/start/GetStarted";
 import Login from "../screens/start/Login";
 import Register from "../screens/start/Register";
 import MainRoutes from "./MainRoutes";
-import Pets from "../screens/home/Pets";
-import Settings from "../screens/home/Settings";
+import Pets from "../screens/main/Pets";
+import Settings from "../screens/main/Settings";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator<StartStackParamList>();

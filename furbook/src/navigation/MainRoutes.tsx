@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Navigation Screens
-import Home from "../screens/home/Home";
+import Home from "../screens/main/Home";
 import Notes from "../screens/notes/Notes";
 import AppBar from "../components/AppBar";
 

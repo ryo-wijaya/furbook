@@ -79,7 +79,8 @@ const Login = ({ route, navigation }: navigationProps) => {
           onChangeText={text => setEmail({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
-          theme={{colors: {text: 'black'}}}
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
         />
         <HelperText type="error" visible={!!email.error}>
           {email.error}
@@ -93,9 +94,10 @@ const Login = ({ route, navigation }: navigationProps) => {
           onChangeText={text => setPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
           secureTextEntry={passwordVisible}
-          right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
-          theme={{colors: {text: 'black'}}}
+          right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} color="black" onPress={() => setPasswordVisible(!passwordVisible)} />}
         />
         <HelperText type="error" visible={!!password.error}>
           {password.error}

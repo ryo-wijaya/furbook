@@ -93,7 +93,8 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setName({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
-          theme={{colors: {text: 'black'}}}
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
         />
         <HelperText type="error" visible={!!name.error}>
           {name.error}
@@ -107,7 +108,8 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setEmail({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
-          theme={{colors: {text: 'black'}}}
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
         />
         <HelperText type="error" visible={!!email.error}>
           {email.error}
@@ -121,11 +123,13 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
-          theme={{colors: {text: 'black'}}}
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
           secureTextEntry={passwordVisible}
           right={
             <TextInput.Icon
               name={passwordVisible ? 'eye' : 'eye-off'}
+              color="black"
               onPress={() => setPasswordVisible(!passwordVisible)}
             />
           }
@@ -142,11 +146,13 @@ const Register = ({route, navigation}: navigationProps) => {
           onChangeText={text => setConfirmPassword({value: text, error: ''})}
           selectionColor="brown"
           activeOutlineColor="brown"
-          theme={{colors: {text: 'black'}}}
+          outlineColor="#6d453d"
+          theme={{colors: {text: 'black', placeholder: 'brown'}}}
           secureTextEntry={confirmPasswordVisible}
           right={
             <TextInput.Icon
               name={confirmPasswordVisible ? 'eye' : 'eye-off'}
+              color="black"
               onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
             />
           }
