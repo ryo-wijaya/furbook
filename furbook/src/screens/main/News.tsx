@@ -25,43 +25,108 @@ const Pets = ({ route, navigation }: navigationProps) => {
   return (
     <ScrollView>
     <View style={styles.cardContainer}>
+      <Card style={styles.headCard}>
+          <TouchableOpacity onPress={() => console.log("hi")}>
+            <Card.Content style={styles.plusSignContainer}>
+              <Text style={styles.plusSign}>Sustainable News Articles</Text>
+            </Card.Content>
+          </TouchableOpacity>
+      </Card>
       <Card style={styles.card}>
         <Card.Content style={styles.cardContent}>
-          <Avatar.Image size={100} source={require('../../assets/dog.png')} />
+          <Avatar.Image size={100} source={require('../../assets/company.png')} />
           <View style={styles.petDetailsContainer}>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Name:  </Text>
-              <Text style={styles.petDetailTextValue}>Eevee</Text>
+              <Text style={styles.petDetailTextKey}>Oil Giant Exon Spill</Text>
             </View>
             <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Gender:  </Text>
-              <Text style={styles.petDetailTextValue}>Female</Text>
-            </View>
-            <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Breed:  </Text>
-              <Text style={styles.petDetailTextValue}>Cavapoo</Text>
-            </View>
-            <View style={styles.petDetails}>
-              <Text style={styles.petDetailTextKey}>Age:  </Text>
-              <Text style={styles.petDetailTextValue}>8 Months</Text>
+              <Text>Click to read more</Text>
             </View>
           </View>
         </Card.Content>
         <Card.Actions style={styles.buttonsContainer}>
           <IconButton 
-            icon="eye"
+            icon="share"
             color="#6d453d"
             size={25}
             onPress={() => console.log("hi")}
           />
           <IconButton 
-            icon="square-edit-outline"
+            icon="bookmark"
             color="#6d453d"
             size={25}
             onPress={() => console.log("hi")}
           />
           <IconButton 
-            icon="delete"
+            icon="heart"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+        </Card.Actions>
+      </Card>
+
+      <Card style={styles.card}>
+        <Card.Content style={styles.cardContent}>
+          <Avatar.Image size={100} source={require('../../assets/company.png')} />
+          <View style={styles.petDetailsContainer}>
+            <View style={styles.petDetails}>
+              <Text style={styles.petDetailTextKey}>Saudi Company Sea Adventures</Text>
+            </View>
+            <View style={styles.petDetails}>
+              <Text>Click to read more</Text>
+            </View>
+          </View>
+        </Card.Content>
+        <Card.Actions style={styles.buttonsContainer}>
+          <IconButton 
+            icon="share"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="bookmark"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="heart"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+        </Card.Actions>
+      </Card>
+
+      <Card style={styles.card}>
+        <Card.Content style={styles.cardContent}>
+          <Avatar.Image size={100} source={require('../../assets/company.png')} />
+          <View style={styles.petDetailsContainer}>
+            <View style={styles.petDetails}>
+              <Text style={styles.petDetailTextKey}>Latest on Climate</Text>
+            </View>
+            <View style={styles.petDetails}>
+              <Text>Click to read more</Text>
+            </View>
+          </View>
+        </Card.Content>
+        <Card.Actions style={styles.buttonsContainer}>
+          <IconButton 
+            icon="share"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="bookmark"
+            color="#6d453d"
+            size={25}
+            onPress={() => console.log("hi")}
+          />
+          <IconButton 
+            icon="heart"
             color="#6d453d"
             size={25}
             onPress={() => console.log("hi")}
@@ -72,35 +137,35 @@ const Pets = ({ route, navigation }: navigationProps) => {
         <Card style={styles.card}>
           <TouchableOpacity onPress={() => console.log("hi")}>
             <Card.Content style={styles.plusSignContainer}>
-              <Text style={styles.plusSign}>+</Text>
+              <Text style={styles.plusSign}>Placeholder Article</Text>
             </Card.Content>
           </TouchableOpacity>
         </Card>
         <Card style={styles.card}>
           <TouchableOpacity onPress={() => console.log("hi")}>
             <Card.Content style={styles.plusSignContainer}>
-              <Text style={styles.plusSign}>+</Text>
+              <Text style={styles.plusSign}>Placeholder Article</Text>
             </Card.Content>
           </TouchableOpacity>
         </Card>
         <Card style={styles.card}>
           <TouchableOpacity onPress={() => console.log("hi")}>
             <Card.Content style={styles.plusSignContainer}>
-              <Text style={styles.plusSign}>+</Text>
+              <Text style={styles.plusSign}>Placeholder Article</Text>
             </Card.Content>
           </TouchableOpacity>
         </Card>
         <Card style={styles.card}>
           <TouchableOpacity onPress={() => console.log("hi")}>
             <Card.Content style={styles.plusSignContainer}>
-              <Text style={styles.plusSign}>+</Text>
+              <Text style={styles.plusSign}>Placeholder Article</Text>
             </Card.Content>
           </TouchableOpacity>
         </Card>
         <Card style={styles.card}>
           <TouchableOpacity onPress={() => console.log("hi")}>
             <Card.Content style={styles.plusSignContainer}>
-              <Text style={styles.plusSign}>+</Text>
+              <Text style={styles.plusSign}>Placeholder Article</Text>
             </Card.Content>
           </TouchableOpacity>
         </Card>
@@ -115,6 +180,19 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  headCard: {
+    marginTop: "3%",
+    marginBottom: '1%',
+    marginLeft: "4%",
+    marginRight: "4%",
+    backgroundColor: '#d3c4bf',
+    borderColor:'#808080',
+    elevation: 10,
+    borderRadius: 1,
+    maxHeight: "70%",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   card: {
     marginTop: "3%",
     marginBottom: '1%',
@@ -124,8 +202,8 @@ const styles = StyleSheet.create({
     borderColor:'#808080',
     elevation: 10,
     borderRadius: 50,
-    // maxHeight: "22%",
-    minHeight: "24%",
+    minHeight: "20%",
+    maxHeight: "70%",
     // justifyContent: 'center',
     // alignItems: 'center',
   },
@@ -158,7 +236,7 @@ const styles = StyleSheet.create({
     paddingTop: "5%"
   },
   plusSign: {
-    fontSize: 100,
+    fontSize: 25,
     color: "#6d453d"
   },
   buttonsContainer: {

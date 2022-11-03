@@ -6,8 +6,8 @@ export type StartStackParamList = {
 
 export type BottomTabParamList = {
     Home: undefined,
-    Pets: undefined,
-    Settings: undefined,
+    News: undefined,
+    Portfolio: undefined,
 };
 
 export type HomeStackParamList = {

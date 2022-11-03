@@ -63,7 +63,7 @@ const Login = ({ route, navigation }: navigationProps) => {
     <View>
       <View style={styles.imageContainer}>
         <Image
-          source={require('../../assets/furbookText.png')}
+          source={require('../../assets/ecoable.png')}
           style={styles.furbookImage}
         />
       </View>

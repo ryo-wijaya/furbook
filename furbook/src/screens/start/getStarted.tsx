@@ -5,7 +5,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StartStackParamList } from '../../navigation/ParameterList';
 
 // Background image
-const image = require('../../assets/welcome.png');
+const image = require('../../assets/ecoableLogo.png');
 
 type navigationProps = NativeStackScreenProps<StartStackParamList, 'GetStarted'>;
 
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     height: '100%',
     width: '100%',
+    
   },
   button: {
     width: '70%',

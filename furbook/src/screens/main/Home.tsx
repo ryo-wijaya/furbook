@@ -31,12 +31,63 @@ const Home = ({ route, navigation }: navigationProps) => {
 
   return (
     <View>
-      <Text>This is the home screen. Navigate to the Notes screen below.</Text>
-      <Button onPress={() => navigation.navigate("Notes" as never, {} as never)}>Notes Screen</Button>
+      <View>
+        <Text style={styles.welcomeUsername}>Welcome, ryo200024</Text>
+      </View>
+      <View style={styles.imageContainer}>
+        <View style={styles.actualImage}>
+          <Image
+            source={require('../../assets/home1.png')}
+          />
+        </View>
+        <View style={styles.actualImage}>
+          <Image
+            source={require('../../assets/home2.png')}
+          />
+        </View>
+        <View style={styles.actualImage}> 
+          <Image
+            source={require('../../assets/home3.png')}
+            style={styles.recommendationImagee}
+          />
+        </View>
+        <View style={styles.actualImage}>
+          <Image
+            source={require('../../assets/home4.png')}
+          />
+        </View>
+        <View style={styles.actualImage}>
+          <Image
+            source={require('../../assets/home5.png')}
+          />
+        </View>
+      </View>
       <Button onPress={logOut}>Sign out</Button>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  welcomeUsername: {
+    marginLeft: '5%',
+  },
+  imageContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  actualImage: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+  recommendationImagee: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    resizeMode: 'contain',
+    width: 85,
+    height: 100,
+  }
+});
 
 
 
